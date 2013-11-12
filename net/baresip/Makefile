@@ -24,6 +24,7 @@ baresip-mods:= \
 	evdev \
 	g711 \
 	g722 \
+	g726 \
 	oss \
 	sdl \
 	speex \
@@ -58,6 +59,7 @@ baresip-mod-cons      := USE_CONS
 baresip-mod-evdev     := USE_EVDEV
 baresip-mod-g711      := USE_G711
 baresip-mod-g722      := USE_G722
+baresip-mod-g726      := USE_G726
 baresip-mod-oss       := USE_OSS
 baresip-mod-sdl       := USE_SDL
 baresip-mod-speex     := USE_SPEEX
@@ -98,6 +100,11 @@ define Package/baresip/install
 		$(PKG_INSTALL_DIR)/usr/lib/baresip/modules/ice.so \
 		$(PKG_INSTALL_DIR)/usr/lib/baresip/modules/stun.so \
 		$(PKG_INSTALL_DIR)/usr/lib/baresip/modules/turn.so \
+		$(PKG_INSTALL_DIR)/usr/lib/baresip/modules/vumeter.so \
+		$(PKG_INSTALL_DIR)/usr/lib/baresip/modules/account.so \
+		$(PKG_INSTALL_DIR)/usr/lib/baresip/modules/auloop.so \
+		$(PKG_INSTALL_DIR)/usr/lib/baresip/modules/contact.so \
+		$(PKG_INSTALL_DIR)/usr/lib/baresip/modules/menu.so \
 		$(1)/usr/lib/baresip/modules/.
 	$(INSTALL_DIR) $(1)/usr/share/baresip
 	$(CP) $(PKG_INSTALL_DIR)/usr/share/baresip/* $(1)/usr/share/baresip/.
@@ -142,6 +149,7 @@ $(eval $(call BuildPlugin,cons,console UI,cons,))
 $(eval $(call BuildPlugin,evdev,input event device UI,evdev,))
 $(eval $(call BuildPlugin,g711,G.711 audio codec,g711,))
 $(eval $(call BuildPlugin,g722,G.722 audio codec,g722,+PACKAGE_baresip-mod-g722:libspandsp))
+$(eval $(call BuildPlugin,g726,G.726 audio codec,g726,+PACKAGE_baresip-mod-g726:libspandsp))
 $(eval $(call BuildPlugin,sdl,SDL video display,sdl,+libsdl))
 $(eval $(call BuildPlugin,oss,OSS audio driver,oss,))
 $(eval $(call BuildPlugin,speex,Speex audio codec,speex,+PACKAGE_baresip-mod-speex:libspeex))
