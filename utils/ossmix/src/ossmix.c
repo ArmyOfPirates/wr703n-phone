@@ -28,7 +28,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <errno.h>
-#include <soundcard.h>
+#include "soundcard.h"
 #include <sys/ioctl.h>
 #define CONFIG_OSS_MIDI
 static char *progname = NULL;
