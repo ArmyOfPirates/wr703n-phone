@@ -11,7 +11,7 @@ CFLAGS += -Wall
 obj = ossmix.o
 
 
-ossmix: 
-	$(CC) $(CFLAGS) -s -o $(DESTDIR)/ossmix $(OBJECTS) $(LIBRARIES) $(LDFLAGS) 
+all: 
+	$(CC) $(CFLAGS) $(EXTRA_CFLAGS) -s -o $(DESTDIR)/ossmix $(OBJECTS) $(LIBRARIES) $(LDFLAGS) ossmix.c 
 clean:
 	rm -f *.o

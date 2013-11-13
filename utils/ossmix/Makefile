@@ -7,6 +7,7 @@
 #
 
 include $(TOPDIR)/rules.mk
+include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=ossmix
 PKG_VERSION:=0.0.1
@@ -26,7 +27,7 @@ $(call Package/ossmix/Default)
   DEPENDS:=+kmod-sound-core
 endef
 
-TARGET_CFLAGS += $(FPIC)
+TARGET_CFLAGS += $(FPIC) -I$(LINUX_DIR)/include -I$(LINUX_DIR)/include/linux 
 
 define Build/Prepare
 	mkdir -p $(PKG_BUILD_DIR)

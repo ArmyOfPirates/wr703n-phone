@@ -30,10 +30,7 @@
 #include <errno.h>
 #include <soundcard.h>
 #include <sys/ioctl.h>
-#ifndef LOCAL_BUILD
-#include <local_config.h>
-#endif
-
+#define CONFIG_OSS_MIDI
 static char *progname = NULL;
 static int mixerfd = -1, nrext = 0, quiet = 0, verbose = 0, verbose_info = 0;
 
