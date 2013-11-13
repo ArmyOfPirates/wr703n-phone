@@ -2,7 +2,7 @@
 
 OSFLAGS=-Wall -DOSS_LITTLE_ENDIAN
 OSSLIBDIR="/usr/lib/oss"
-THISOS=kernel/OS/Linux
+#THISOS=kernel/OS/Linux
 CFLAGS+=-O
 CSOURCES=ossmix.c
 
@@ -12,6 +12,8 @@ obj = ossmix.o
 
 
 all: 
-	$(CC) $(CFLAGS) $(EXTRA_CFLAGS) -s -o $(DESTDIR)/ossmix $(OBJECTS) $(LIBRARIES) $(LDFLAGS) ossmix.c 
+	$(CC) $(CFLAGS) $(EXTRA_CFLAGS) -s -o $(DESTDIR) $(OBJECTS) $(LIBRARIES) $(LDFLAGS) ossmix.c 
 clean:
 	rm -f *.o
+install:
+	sleep 1

@@ -27,7 +27,7 @@ $(call Package/ossmix/Default)
   DEPENDS:=+kmod-sound-core
 endef
 
-TARGET_CFLAGS += $(FPIC) -I$(LINUX_DIR)/include -I$(LINUX_DIR)/include/linux 
+TARGET_CFLAGS += $(FPIC) -I$(LINUX_DIR)/include
 
 define Build/Prepare
 	mkdir -p $(PKG_BUILD_DIR)
@@ -39,16 +39,17 @@ define Build/Compile
 		CC="$(TARGET_CC)" \
 		DESTDIR="$(PKG_INSTALL_DIR)" \
 		EXTRA_CFLAGS="$(TARGET_CFLAGS) -DOPENWRT" \
+		SYSROOT="$$$$($(FIND) $(TOOLCHAIN_DIR) -path '*/include/pthread.h' | sed -ne '1s#/include/pthread.h##p')" \
 		SYSROOT_ALT="$(STAGING_DIR)/usr" \
 		RELEASE=1 \
 		CROSS_COMPILE="$(TARGET_CROSS)" \
 		OS="linux" \
-		all install
+		all
 endef
 
 define Package/ossmix/install
 	$(INSTALL_DIR) $(1)/usr/bin
-	$(CP) $(PKG_INSTALL_DIR)/usr/bin/ossmix $(1)/usr/bin/
+	$(CP) $(PKG_INSTALL_DIR) $(1)/usr/bin/ossmix
 endef
 
 
