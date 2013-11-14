@@ -32,6 +32,7 @@ baresip-mods:= \
 	uuid \
 	v4l \
 	v4l2 \
+	wr703n-menu \
 
 PKG_CONFIG_DEPENDS:= \
 	$(patsubst %,CONFIG_PACKAGE_baresip-mod-%,$(baresip-mods)) \
@@ -67,6 +68,7 @@ baresip-mod-stdio     := USE_STDIO
 baresip-mod-uuid      := USE_UUID
 baresip-mod-v4l       := USE_V4L
 baresip-mod-v4l2      := USE_V4L2
+baresip-mod-wr703n-menu      := USE_CUSTOM_MENU
 
 BARESIP_MOD_OPTIONS:= \
 	MOD_AUTODETECT= \
@@ -157,3 +159,4 @@ $(eval $(call BuildPlugin,stdio,standard I/O UI,stdio,))
 $(eval $(call BuildPlugin,uuid,UUID,uuid,+libuuid))
 $(eval $(call BuildPlugin,v4l,Video4Linux video source,v4l,+PACKAGE_baresip-mod-v4l:libv4l))
 $(eval $(call BuildPlugin,v4l2,Video4Linux2 video source,v4l2,+PACKAGE_baresip-mod-v4l2:libv4l))
+$(eval $(call BuildPlugin,wr703n-menu,Custom menu,wr703n-menu,))
