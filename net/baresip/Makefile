@@ -18,6 +18,7 @@ PKG_MD5SUM:=862aac3a9840cc283d484cbc39df7059
 
 baresip-mods:= \
 	alsa \
+	auloop \
 	avcodec \
 	avformat \
 	cons \
@@ -32,6 +33,7 @@ baresip-mods:= \
 	uuid \
 	v4l \
 	v4l2 \
+	vumeter \
 	wr703n-menu \
 
 PKG_CONFIG_DEPENDS:= \
@@ -69,6 +71,8 @@ baresip-mod-uuid      := USE_UUID
 baresip-mod-v4l       := USE_V4L
 baresip-mod-v4l2      := USE_V4L2
 baresip-mod-wr703n-menu      := USE_CUSTOM_MENU
+baresip-mod-vumeter      := USE_VUMETER
+baresip-mod-auloop      := USE_AULOOP
 
 BARESIP_MOD_OPTIONS:= \
 	MOD_AUTODETECT= \
@@ -102,9 +106,7 @@ define Package/baresip/install
 		$(PKG_INSTALL_DIR)/usr/lib/baresip/modules/ice.so \
 		$(PKG_INSTALL_DIR)/usr/lib/baresip/modules/stun.so \
 		$(PKG_INSTALL_DIR)/usr/lib/baresip/modules/turn.so \
-		$(PKG_INSTALL_DIR)/usr/lib/baresip/modules/vumeter.so \
 		$(PKG_INSTALL_DIR)/usr/lib/baresip/modules/account.so \
-		$(PKG_INSTALL_DIR)/usr/lib/baresip/modules/auloop.so \
 		$(PKG_INSTALL_DIR)/usr/lib/baresip/modules/contact.so \
 		$(PKG_INSTALL_DIR)/usr/lib/baresip/modules/menu.so \
 		$(1)/usr/lib/baresip/modules/.
@@ -160,3 +162,5 @@ $(eval $(call BuildPlugin,uuid,UUID,uuid,+libuuid))
 $(eval $(call BuildPlugin,v4l,Video4Linux video source,v4l,+PACKAGE_baresip-mod-v4l:libv4l))
 $(eval $(call BuildPlugin,v4l2,Video4Linux2 video source,v4l2,+PACKAGE_baresip-mod-v4l2:libv4l))
 $(eval $(call BuildPlugin,wr703n-menu,Custom menu,wr703n-menu,))
+$(eval $(call BuildPlugin,vumeter,Show VU meter during calls,vumeter,))
+$(eval $(call BuildPlugin,auloop,Test audio with a loop,auloop,))
