@@ -9,7 +9,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=baresip
-PKG_VERSION:=0.4.6
+PKG_VERSION:=0.4.7
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
@@ -26,6 +26,7 @@ baresip-mods:= \
 	g711 \
 	g722 \
 	g726 \
+	httpd \
 	oss \
 	sdl \
 	speex \
@@ -63,6 +64,7 @@ baresip-mod-evdev     := USE_EVDEV
 baresip-mod-g711      := USE_G711
 baresip-mod-g722      := USE_G722
 baresip-mod-g726      := USE_G726
+baresip-mod-g726      := USE_HTTPD
 baresip-mod-oss       := USE_OSS
 baresip-mod-sdl       := USE_SDL
 baresip-mod-speex     := USE_SPEEX
@@ -164,3 +166,4 @@ $(eval $(call BuildPlugin,v4l2,Video4Linux2 video source,v4l2,+PACKAGE_baresip-m
 $(eval $(call BuildPlugin,wr703n-menu,Custom menu,wr703n-menu,))
 $(eval $(call BuildPlugin,vumeter,Show VU meter during calls,vumeter,))
 $(eval $(call BuildPlugin,auloop,Test audio with a loop,auloop,))
+$(eval $(call BuildPlugin,httpd,HTTP management interface,httpd,))
