@@ -14,7 +14,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://www.creytiv.com/pub
-PKG_MD5SUM:=c44bf87118b19464621fe459d69853d1
+PKG_MD5SUM:=62205b32f92f83e24b8cb199836acad6
 
 include $(INCLUDE_DIR)/package.mk
 

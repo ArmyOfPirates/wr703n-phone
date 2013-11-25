@@ -14,7 +14,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://www.creytiv.com/pub/
-PKG_MD5SUM:=862aac3a9840cc283d484cbc39df7059
+PKG_MD5SUM:=2583e1170b6656ab4dacf714954e66a1
 
 baresip-mods:= \
 	alsa \
@@ -64,7 +64,7 @@ baresip-mod-evdev     := USE_EVDEV
 baresip-mod-g711      := USE_G711
 baresip-mod-g722      := USE_G722
 baresip-mod-g726      := USE_G726
-baresip-mod-g726      := USE_HTTPD
+baresip-mod-httpd      := USE_HTTPD
 baresip-mod-oss       := USE_OSS
 baresip-mod-sdl       := USE_SDL
 baresip-mod-speex     := USE_SPEEX
